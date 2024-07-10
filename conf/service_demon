@@ -1,0 +1,13 @@
+[Unit]
+Description=servicePythonDemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/python /opt/back_dnsrbl/demon/create_demon.py
+ExecStop= ps aux | grep create_demon | grep -v 'grep' | awk '{print $2}' | xargs -I kill -9 {}
+WorkingDirectory=/opt/back_dnsrbl/demon
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

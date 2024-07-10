@@ -1,0 +1,4 @@
+SHELL=/bin/bash
+TZ=America/Santiago
+#0 8 1 * * /usr/bin/flock -w 0 /opt/cronVision.lock -c '/opt/back_dnsrbl/cron/capture_dnsrbl.py >> /var/log/capturednsrbl.log 2>&1'
+#0 8 1 * * /usr/bin/flock -w 0 /opt/cronReview.lock -c '/opt/back_dnsrbl/cron/review_dnsrbl.py >> /var/log/reviewdnsrbl.log 2>&1'
